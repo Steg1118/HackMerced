@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CropButtons : MonoBehaviour
 {
+    public static GameObject tileWorkedOn;
+    public GameObject CornPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,26 @@ public class CropButtons : MonoBehaviour
 
     public void Corn()
     {
-        
+        if(tileWorkedOn.transform.GetComponent<Tile>().CropHere == null)
+        {
+            GameManager.MoneyHave -= 120;
+            Tile.tileOptionUI.SetActive(false);
+            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(CornPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), transform.rotation);
+            Debug.Log("Works.");
+        }
+    }
+
+
+    public void SellTile()
+    {
+        switch(tileWorkedOn.GetComponent<Tile>().CropHere.tag)
+        {
+            case "Corn":
+                GameManager.MoneyHave += 120;
+                break;
+        }
+        Destroy(tileWorkedOn.GetComponent<Tile>().CropHere);
+        tileWorkedOn.GetComponent<Tile>().CropHere = null;
+        Tile.TileSellUI.SetActive(false);
     }
 }

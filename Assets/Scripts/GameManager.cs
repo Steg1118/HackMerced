@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
         MoneyHave = 5000;
         Tile.tileOptionUI = GameObject.Find("TileOptUI");
         Tile.tileOptionUI.SetActive(false);
+        Tile.TileSellUI = GameObject.Find("TileSellUI");
+        Tile.TileSellUI.SetActive(false);
     }
 
     // Update is called once per frame

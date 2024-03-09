@@ -5,15 +5,17 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     public static GameObject tileOptionUI;
-    private GameObject CropHere;
+    public static GameObject TileSellUI;
+    public GameObject CropHere;
     void OnMouseOver()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && !tileOptionUI.activeSelf && !TileSellUI.activeSelf && CropHere == null)
         {
-            if(CropHere == null)
-                TileOptions();
-            else
-                SellTile();
+            TileOptions();
+        }
+        else if(Input.GetMouseButtonDown(0) && !TileSellUI.activeSelf && !tileOptionUI.activeSelf && CropHere != null)
+        {
+            SellOpt();
         }
     }
     // Start is called before the first frame update
@@ -31,10 +33,15 @@ public class Tile : MonoBehaviour
         }
     }
 
-    private void SellTile()
+    private void SellOpt()
     {
-        //switch(CropHere.tag)
-        CropHere = null;
+        TileSellUI.SetActive(true);
+        //float distanceFromCamera = 8f;
+        Vector3 mousePos = Input.mousePosition + new Vector3(50, -15, 0);
+        TileSellUI.transform.position = mousePos;
+        CropButtons.tileWorkedOn = gameObject;
+        //mousePos.z = distanceFromCamera;
+        //Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
     }
 
     private void TileOptions()
@@ -43,8 +50,8 @@ public class Tile : MonoBehaviour
         //float distanceFromCamera = 8f;
         Vector3 mousePos = Input.mousePosition + new Vector3(50, -15, 0);
         tileOptionUI.transform.position = mousePos;
+        CropButtons.tileWorkedOn = gameObject;
         //mousePos.z = distanceFromCamera;
         //Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
-        Debug.Log("Works.");    
     }
 }

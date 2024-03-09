@@ -20,6 +20,14 @@ public class Crop : MonoBehaviour
         //switch
     }
 
+    // void OnMouseOver()
+    // {
+    //     if(Input.GetMouseButtonDown(0) && !TileSellUI.activeSelf && CropHere != null)
+    //     {
+    //         SellOpt();
+    //     }
+    // }
+
     // Update is called once per frame
     void Update()
     {
