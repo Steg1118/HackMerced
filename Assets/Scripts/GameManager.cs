@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
     public void PlayGameButton()
     {
         StartCoroutine(Transition());
+        //CalculateScore
 
     }
 

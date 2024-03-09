@@ -22,6 +22,7 @@ public class CropButtons : MonoBehaviour
     {
         if(tileWorkedOn.transform.GetComponent<Tile>().CropHere == null)
         {
+            GameManager.CropsPlanted.Add(0);
             GameManager.MoneyHave -= 120;
             Tile.tileOptionUI.SetActive(false);
             tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(CornPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), transform.rotation);
@@ -36,6 +37,7 @@ public class CropButtons : MonoBehaviour
         {
             case "Corn":
                 GameManager.MoneyHave += 120;
+                GameManager.CropsPlanted.Remove(0);
                 break;
         }
         Destroy(tileWorkedOn.GetComponent<Tile>().CropHere);

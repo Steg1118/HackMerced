@@ -7,12 +7,12 @@ public class Crop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        switch(gameObject.tag)
-        {
-            case("Corn"):
-                GameManager.CropsPlanted.Add(0);
-                break;
-        }
+        // switch(gameObject.tag)
+        // {
+        //     case("Corn"):
+        //         GameManager.CropsPlanted.Add(0);
+        //         break;
+        // }
     }
 
     void OnDestroy()
