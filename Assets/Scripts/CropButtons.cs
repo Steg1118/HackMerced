@@ -15,4 +15,9 @@ public class CropButtons : MonoBehaviour
     {
         
     }
+
+    public void Corn()
+    {
+        
+    }
 }

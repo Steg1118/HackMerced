@@ -10,7 +10,10 @@ public class Tile : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            TileOptions();
+            if(CropHere == null)
+                TileOptions();
+            else
+                SellTile();
         }
     }
     // Start is called before the first frame update
@@ -26,6 +29,12 @@ public class Tile : MonoBehaviour
         {
             tileOptionUI.SetActive(false);
         }
+    }
+
+    private void SellTile()
+    {
+        //switch(CropHere.tag)
+        CropHere = null;
     }
 
     private void TileOptions()
