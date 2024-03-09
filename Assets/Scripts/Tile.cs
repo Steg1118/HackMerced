@@ -29,6 +29,7 @@ public class Tile : MonoBehaviour
     void Start()
     {
         GameManager.Board[row, collumn] = this.gameObject;
+        Debug.Log(GameManager.Board[row, collumn]);
         if(CropButtons.tileWorkedOn == null)
         {
             //set info text to null
@@ -83,7 +84,7 @@ public class Tile : MonoBehaviour
         {
             temp = "Crop here: None\n";
         }
-        temp += "Soil Quality: " + (soilQuality / 4) + "\n";
+        temp += "Soil Quality: " + ((double)soilQuality / 4) + "\n";
         a.text = temp;
 
     }

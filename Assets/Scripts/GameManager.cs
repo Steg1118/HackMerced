@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     public static int[,] CropBoard = new int[8, 8]; //0 = corn
     public static GameObject[,] Board = new GameObject[8,8]; 
     public static int MonoScore;
+    public GameObject ScoreScreen;
+    public TextMeshProUGUI ScoreText;
+    public TextMeshProUGUI WhyScoreText;
     //private double chainLvl = 0;
     // Start is called before the first frame update
     void Start()
@@ -33,6 +36,14 @@ public class GameManager : MonoBehaviour
         Tile.tileOptionUI.SetActive(false);
         Tile.TileSellUI = GameObject.Find("TileSellUI");
         Tile.TileSellUI.SetActive(false);
+        ScoreScreen.SetActive(false);
+        for(int r = 0; r < 8; r++)
+        {
+            for(int c = 0; c < 8; c++)//276 combinations checked
+            {
+                CropBoard[r, c] = -1;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -63,14 +74,6 @@ public class GameManager : MonoBehaviour
         StartCoroutine(Transition());
         CalculateScore();
         MakeMonoScore();
-        for(int r = 0; r < 8; r++)
-        {
-            for(int c = 0; c < 8; c++)//276 combinations checked
-            {
-                Board[r, c].GetComponent<Tile>().OldCropHere = Board[r, c].GetComponent<Tile>().CropHere;
-                Board[r, c].GetComponent<Tile>().CropHere = null;
-            }
-        }
     }
 
     private void CalculateScore()
@@ -154,11 +157,14 @@ public class GameManager : MonoBehaviour
     private void MakeMonoScore()
     {
         MonoScore = 0;
+        int preScore = 0;
         for(int r = 0; r < 8; r++)
         {
             for(int c = 0; c < 8; c++)//276 combinations checked
             {
-                int preScore = MonoScore;
+                preScore = MonoScore;
+                if(CropBoard[r,c] != -1)
+                {
                 if(r+1 < 8 && CropBoard[r,c] == CropBoard[r+1,c])
                 {
                     MonoScore++;
@@ -175,18 +181,56 @@ public class GameManager : MonoBehaviour
                 {
                     MonoScore++;
                 }
+                }
+                //Debug.Log(Board[r, c]);
                 Board[r, c].GetComponent<Tile>().soilQuality -= (int)(MonoScore - preScore);
-                if(MonoScore <= 0)
+                if(Board[r, c].GetComponent<Tile>().soilQuality <= 0)
                 {
                     Destroy(Board[r, c]);
                 }
+                else
+                {
+                    // Destroy(Board[r, c].GetComponent<Tile>().CropHere);
+                    //Board[r, c].GetComponent<Tile>().CropHere = null;
+                }
+            }
+        }
+        for(int r = 0; r < 8; r++)
+        {
+            for(int c = 0; c < 8; c++)//276 combinations checked
+            {
+                Board[r, c].GetComponent<Tile>().OldCropHere = Board[r, c].GetComponent<Tile>().CropHere;
+                Destroy(Board[r, c].GetComponent<Tile>().CropHere);
+                Board[r, c].GetComponent<Tile>().CropHere = null;
+                CropBoard[r, c] = -1;
             }
         }
     }
 
     private IEnumerator Transition()
     {
-        //Tranistion to next day
+        ScoreScreen.SetActive(true);
+        ScoreScreen.GetComponent<Image>().color = new Color(ScoreScreen.GetComponent<Image>().color.r, ScoreScreen.GetComponent<Image>().color.b, ScoreScreen.GetComponent<Image>().color.g, 0);
         yield return new WaitForSeconds(0.01f);
+        WhyScoreText.text = "You have planted " + 0 + " Corn.";
+        ScoreText.text = "Current Money: " + MoneyHave;
+        //Tranistion to next day
+        for(int i = 0; i < 100; i++)
+        {
+            ScoreScreen.GetComponent<Image>().color += new Color(0, 0, 0, 0.01f);
+            yield return new WaitForSeconds(0.01f);
+        }
+        theHumitiy = Mathf.Round((int) (10 * Random.Range(65, 95))) / 10f;
+        TempartureF = Mathf.Round((int) (10 * Random.Range(40, 95))) / 10f;
+        TempartureC = Mathf.Round((TempartureF - 32) * 50/9) / 10;
+        theSeason++;
+        if(theSeason > 4)
+        {
+            theSeason = 1;
+        }
+
+        yield return new WaitUntil(() => Input.anyKeyDown);
+
+        ScoreScreen.SetActive(false);
     }
 }
