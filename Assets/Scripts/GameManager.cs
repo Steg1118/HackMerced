@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public static float TempartureF;
     public static float theHumitiy;
     public static int theSeason; // 0 = spring, 1 = summer, 2 = fall, 3 = winter
-    public static List<int> CropsPlanted = new List<int>(); // 0 = corn
+    public static List<int> CropsPlanted = new List<int>(); // 0 = corn, 1 = wheat, 2 = beet, 3 = barley, 4 = Spinach, 5 = Onion,  
     public static int[,] CropBoard = new int[8, 8]; //0 = corn
     public static GameObject[,] Board = new GameObject[8,8]; 
     public static int MonoScore;
@@ -82,6 +82,11 @@ public class GameManager : MonoBehaviour
     private void CalculateScore()
     {
         int numCorn = 0;
+        int numWheat = 0;
+        int numBeet = 0;
+        int numBarley = 0;
+        int numSpinach = 0;
+        int numOnion = 0;
         foreach(int a in CropsPlanted)
         {
             if(a == 0)
@@ -90,23 +95,47 @@ public class GameManager : MonoBehaviour
             }
             else if(a == 1)
             {
-
+                numWheat++;
+            }
+            else if(a == 2)
+            {
+                numBeet++;
+            }
+            else if(a == 3)
+            {
+                numBarley++;
+            }
+            else if(a == 4)
+            {
+                numSpinach++;
+            }
+            else if(a == 5)
+            {
+                numOnion++;
             }
         }
 
         switch(theSeason)
         {
             case 1://destroy non spring crops
-
+                numOnion = 0;
                 break;
             case 2://destroy non summer crops
                 numCorn = 0;
+                numWheat = 0;
+                numBarley = 0;
+                numOnion = 0;
                 break;
             case 3://destroy non fall crops
                 numCorn = 0;
+                numBeet = 0;
+                numSpinach = 0;
                 break;
             case 4://destroy non winter crops
                 numCorn = 0;
+                numWheat = 0;
+                numBeet = 0;
+                numBarley = 0;
                 break; 
         }
 
@@ -115,14 +144,29 @@ public class GameManager : MonoBehaviour
             if(theHumitiy > 85)
             {
                 MoneyHave += 180 * numCorn;
+                MoneyHave += 10 * numWheat;
+                MoneyHave += 10 * numBeet;
+                MoneyHave += 130 * numBarley;
+                MoneyHave += 140 * numSpinach;
+                MoneyHave += 130 * numOnion;
             }
             else if(theHumitiy > 75)
             {
                 MoneyHave += 180 * numCorn;
+                MoneyHave += 46 * numWheat;
+                MoneyHave += 46 * numBeet;
+                MoneyHave += 130 * numBarley;
+                MoneyHave += 140 * numSpinach;
+                MoneyHave += 130 * numOnion;
             }
             else
             {
                 MoneyHave += 60 * numCorn;
+                MoneyHave += 46 * numWheat;
+                MoneyHave += 46 * numBeet;
+                MoneyHave += 130 * numBarley;
+                MoneyHave += 140 * numSpinach;
+                MoneyHave += 130 * numOnion;
             }
         }
         else if(TempartureF > 95 - 36)
@@ -130,14 +174,29 @@ public class GameManager : MonoBehaviour
             if(theHumitiy > 85)
             {
                 MoneyHave += 180 * numCorn;
+                MoneyHave += 140 * numWheat;
+                MoneyHave += 46 * numBeet;
+                MoneyHave += 130 * numBarley;
+                MoneyHave += 140 * numSpinach;
+                MoneyHave += 130 * numOnion;
             }
             else if(theHumitiy > 75)
             {
                 MoneyHave += 180 * numCorn;
+                MoneyHave += 140 * numWheat;
+                MoneyHave += 140 * numBeet;
+                MoneyHave += 130 * numBarley;
+                MoneyHave += 140 * numSpinach;
+                MoneyHave += 130 * numOnion;
             }
             else
             {
                 MoneyHave += 60 * numCorn;
+                MoneyHave += 140 * numWheat;
+                MoneyHave += 140 * numBeet;
+                MoneyHave += 130 * numBarley;
+                MoneyHave += 140 * numSpinach;
+                MoneyHave += 130 * numOnion;
             }
         }
         else
@@ -145,14 +204,29 @@ public class GameManager : MonoBehaviour
             if(theHumitiy > 85)
             {
                 MoneyHave += 60 * numCorn;
+                MoneyHave += 140 * numWheat;
+                MoneyHave += 46 * numBeet;
+                MoneyHave += 130 * numBarley;
+                MoneyHave += 140 * numSpinach;
+                MoneyHave += 130 * numOnion;
             }
             else if(theHumitiy > 75)
             {
                 MoneyHave += 60 * numCorn;
+                MoneyHave += 140 * numWheat;
+                MoneyHave += 140 * numBeet;
+                MoneyHave += 130 * numBarley;
+                MoneyHave += 140 * numSpinach;
+                MoneyHave += 130 * numOnion;
             }
             else
             {
                 MoneyHave += 10 * numCorn;
+                MoneyHave += 140 * numWheat;
+                MoneyHave += 140 * numBeet;
+                MoneyHave += 130 * numBarley;
+                MoneyHave += 140 * numSpinach;
+                MoneyHave += 130 * numOnion;
             }
         }
     }
