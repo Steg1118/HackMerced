@@ -71,9 +71,12 @@ public class GameManager : MonoBehaviour
 
     public void PlayGameButton()
     {
-        StartCoroutine(Transition());
-        CalculateScore();
-        MakeMonoScore();
+        if(MoneyHave > 0)
+        {
+            StartCoroutine(Transition());
+            CalculateScore();
+            MakeMonoScore();
+        }
     }
 
     private void CalculateScore()
@@ -230,7 +233,11 @@ public class GameManager : MonoBehaviour
         }
 
         yield return new WaitUntil(() => Input.anyKeyDown);
-
+        for(int i = 0; i < 100; i++)
+        {
+            ScoreScreen.GetComponent<Image>().color -= new Color(0, 0, 0, 0.01f);
+            yield return new WaitForSeconds(0.01f);
+        }
         ScoreScreen.SetActive(false);
     }
 }
