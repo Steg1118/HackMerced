@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    public static GameObject tileOptionPrefab;
+    public GameObject tileOptionUI;
+    private GameObject CropHere;
     void OnMouseOver()
     {
         if(Input.GetMouseButtonDown(0))
@@ -21,16 +22,20 @@ public class Tile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            tileOptionUI.SetActive(false);
+        }
     }
 
     private void TileOptions()
     {
-        float distanceFromCamera = 8f;
+        tileOptionUI.SetActive(true);
+        //float distanceFromCamera = 8f;
         Vector3 mousePos = Input.mousePosition;
-        mousePos.z = distanceFromCamera;
-        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
-        Debug.Log("Works.");
-        //Instansiate(tileOptionPrefab, worldPosition, transform.rotation);
+        tileOptionUI.transform.position = mousePos;
+        //mousePos.z = distanceFromCamera;
+        //Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
+        Debug.Log("Works.");    
     }
 }
