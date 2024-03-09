@@ -6,6 +6,8 @@ public class Tile : MonoBehaviour
 {
     public static GameObject tileOptionUI;
     public static GameObject TileSellUI;
+    public int row;
+    public int collumn;
     public GameObject CropHere;
     //add soil stats
     void OnMouseOver()
@@ -53,6 +55,6 @@ public class Tile : MonoBehaviour
 
     public void DisplayInfo()
     {
-
+        //display information on this tile
     }
 }

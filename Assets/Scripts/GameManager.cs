@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public static float theHumitiy;
     public static int theSeason; // 0 = spring, 1 = summer, 2 = fall, 3 = winter
     public static List<int> CropsPlanted = new List<int>(); // 0 = corn
+    public static int[,] CropBoard = new int[8, 8]; //0 = corn
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
         TempartureF = Mathf.Round((int) (10 * Random.Range(65, 95))) / 10f;
         TempartureC = Mathf.Round((TempartureF - 32) * 50/9) / 10;
         theSeason = (int) Random.Range(1, 5);
-        MoneyHave = 5000;
+        MoneyHave = 1000;
         Tile.tileOptionUI = GameObject.Find("TileOptUI");
         Tile.tileOptionUI.SetActive(false);
         Tile.TileSellUI = GameObject.Find("TileSellUI");
@@ -57,6 +58,11 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(Transition());
         //CalculateScore
+        MakeMonoScore();
+    }
+
+    private void MakeMonoScore()
+    {
 
     }
 
