@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    public GameObject tileOptionUI;
+    public static GameObject tileOptionUI;
     private GameObject CropHere;
     void OnMouseOver()
     {
@@ -16,7 +16,7 @@ public class Tile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class Tile : MonoBehaviour
     {
         tileOptionUI.SetActive(true);
         //float distanceFromCamera = 8f;
-        Vector3 mousePos = Input.mousePosition;
+        Vector3 mousePos = Input.mousePosition + new Vector3(50, -15, 0);
         tileOptionUI.transform.position = mousePos;
         //mousePos.z = distanceFromCamera;
         //Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
