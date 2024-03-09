@@ -176,10 +176,10 @@ public class GameManager : MonoBehaviour
                     MonoScore++;
                 }
                 Board[r, c].GetComponent<Tile>().soilQuality -= (int)(MonoScore - preScore);
-                //if(MonoScore <= 0)
-                //{
-                //  disable Board[r, c]
-                //}
+                if(MonoScore <= 0)
+                {
+                    Destroy(Board[r, c]);
+                }
             }
         }
     }
