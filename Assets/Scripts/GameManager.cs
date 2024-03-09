@@ -63,6 +63,14 @@ public class GameManager : MonoBehaviour
         StartCoroutine(Transition());
         CalculateScore();
         MakeMonoScore();
+        for(int r = 0; r < 8; r++)
+        {
+            for(int c = 0; c < 8; c++)//276 combinations checked
+            {
+                Board[r, c].GetComponent<Tile>().OldCropHere = Board[r, c].GetComponent<Tile>().CropHere;
+                Board[r, c].GetComponent<Tile>().CropHere = null;
+            }
+        }
     }
 
     private void CalculateScore()
@@ -168,6 +176,10 @@ public class GameManager : MonoBehaviour
                     MonoScore++;
                 }
                 Board[r, c].GetComponent<Tile>().soilQuality -= (int)(MonoScore - preScore);
+                //if(MonoScore <= 0)
+                //{
+                //  disable Board[r, c]
+                //}
             }
         }
     }
