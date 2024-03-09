@@ -44,4 +44,16 @@ public class CropButtons : MonoBehaviour
         tileWorkedOn.GetComponent<Tile>().CropHere = null;
         Tile.TileSellUI.SetActive(false);
     }
+
+    public void InfoTile()
+    {
+        switch(tileWorkedOn.GetComponent<Tile>().CropHere.tag)
+        {
+            case "Corn":
+                break;
+            default:
+                break;
+        }
+        tileWorkedOn.GetComponent<Tile>().DisplayInfo();
+    }
 }

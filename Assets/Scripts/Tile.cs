@@ -7,6 +7,7 @@ public class Tile : MonoBehaviour
     public static GameObject tileOptionUI;
     public static GameObject TileSellUI;
     public GameObject CropHere;
+    //add soil stats
     void OnMouseOver()
     {
         if(Input.GetMouseButtonDown(0) && !tileOptionUI.activeSelf && !TileSellUI.activeSelf && CropHere == null)
@@ -36,22 +37,22 @@ public class Tile : MonoBehaviour
     private void SellOpt()
     {
         TileSellUI.SetActive(true);
-        //float distanceFromCamera = 8f;
         Vector3 mousePos = Input.mousePosition + new Vector3(50, -15, 0);
         TileSellUI.transform.position = mousePos;
         CropButtons.tileWorkedOn = gameObject;
-        //mousePos.z = distanceFromCamera;
-        //Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
     }
 
     private void TileOptions()
     {
         tileOptionUI.SetActive(true);
-        //float distanceFromCamera = 8f;
         Vector3 mousePos = Input.mousePosition + new Vector3(50, -15, 0);
         tileOptionUI.transform.position = mousePos;
         CropButtons.tileWorkedOn = gameObject;
-        //mousePos.z = distanceFromCamera;
-        //Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
+
+    }
+
+    public void DisplayInfo()
+    {
+
     }
 }
