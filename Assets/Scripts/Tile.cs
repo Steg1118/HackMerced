@@ -8,6 +8,7 @@ public class Tile : MonoBehaviour
     public static GameObject TileSellUI;
     public int row;
     public int collumn;
+    public int soilQuality = 4;
     public GameObject CropHere;
     //add soil stats
     void OnMouseOver()
@@ -24,7 +25,7 @@ public class Tile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        GameManager.Board[row, collumn] = this.gameObject;
     }
 
     // Update is called once per frame
