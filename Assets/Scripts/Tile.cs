@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Tile : MonoBehaviour
 {
@@ -27,6 +29,10 @@ public class Tile : MonoBehaviour
     void Start()
     {
         GameManager.Board[row, collumn] = this.gameObject;
+        if(CropButtons.tileWorkedOn == null)
+        {
+            //set info text to null
+        }
     }
 
     // Update is called once per frame
@@ -34,7 +40,9 @@ public class Tile : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
+            //set info text to null
             tileOptionUI.SetActive(false);
+            TileSellUI.SetActive(false);
         }
     }
 
@@ -55,8 +63,28 @@ public class Tile : MonoBehaviour
 
     }
 
-    public void DisplayInfo()
+    public void DisplayInfo(TextMeshProUGUI a)
     {
+        string temp; 
         //display information on this tile
+        if(CropHere != null)
+        {
+            temp = "Crop here: ";
+            switch(CropHere.tag)
+            {
+                case "Corn":
+                temp += "Corn\n";
+                    break;
+                default:
+                    break;
+            }
+        }
+        else
+        {
+            temp = "Crop here: None\n";
+        }
+        temp += "Soil Quality: " + (soilQuality / 4) + "\n";
+        a.text = temp;
+
     }
 }

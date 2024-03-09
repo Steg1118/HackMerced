@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class CropButtons : MonoBehaviour
 {
     public static GameObject tileWorkedOn;
     public GameObject CornPrefab;
+    public TextMeshProUGUI InfoPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,13 +52,13 @@ public class CropButtons : MonoBehaviour
 
     public void InfoTile()
     {
-        switch(tileWorkedOn.GetComponent<Tile>().CropHere.tag)
-        {
-            case "Corn":
-                break;
-            default:
-                break;
-        }
-        tileWorkedOn.GetComponent<Tile>().DisplayInfo();
+        // switch(tileWorkedOn.GetComponent<Tile>().CropHere.tag)
+        // {
+        //     case "Corn":
+        //         break;
+        //     default:
+        //         break;
+        // }
+        tileWorkedOn.GetComponent<Tile>().DisplayInfo(InfoPanel);
     }
 }
