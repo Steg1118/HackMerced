@@ -13,19 +13,11 @@ public class CropButtons : MonoBehaviour
     public GameObject BarleyPrefab;
     public GameObject SpinachPrefab;
     public GameObject OnionPrefab;
+    public GameObject RicePrefab;
+    public GameObject GreenBeanPrefab;
+    public GameObject GarlicPrefab;
     //public GameObject Prefab;
     public TextMeshProUGUI InfoPanel;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Corn()
     {
@@ -63,6 +55,17 @@ public class CropButtons : MonoBehaviour
         }
     }
 
+    public void Rice()
+    {
+        if(tileWorkedOn.transform.GetComponent<Tile>().CropHere == null)
+        {
+            GameManager.CropsPlanted.Add(6);
+            GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 6;
+            GameManager.MoneyHave -= 110;
+            Tile.tileOptionUI.SetActive(false);
+            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(RicePrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), transform.rotation);
+        }
+    }
 
     public void Barley()
     {
@@ -100,6 +103,30 @@ public class CropButtons : MonoBehaviour
         }
     }
 
+    public void GreenBean()
+    {
+        if(tileWorkedOn.transform.GetComponent<Tile>().CropHere == null)
+        {
+            GameManager.CropsPlanted.Add(7);
+            GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 7;
+            GameManager.MoneyHave -= 95;
+            Tile.tileOptionUI.SetActive(false);
+            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(GreenBeanPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), transform.rotation);
+        }
+    }
+
+    public void Garlic()
+    {
+        if(tileWorkedOn.transform.GetComponent<Tile>().CropHere == null)
+        {
+            GameManager.CropsPlanted.Add(8);
+            GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 8;
+            GameManager.MoneyHave -= 100;
+            Tile.tileOptionUI.SetActive(false);
+            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(GarlicPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), transform.rotation);
+        }
+    }
+
     public void SellTile()
     {
         switch(tileWorkedOn.GetComponent<Tile>().CropHere.tag)
@@ -127,6 +154,18 @@ public class CropButtons : MonoBehaviour
             case "Onion":
                 GameManager.MoneyHave += 95;
                 GameManager.CropsPlanted.Remove(5);
+                break;
+            case "Rice":
+                GameManager.MoneyHave += 110;
+                GameManager.CropsPlanted.Remove(6);
+                break;
+            case "Green Bean":
+                GameManager.MoneyHave += 95;
+                GameManager.CropsPlanted.Remove(7);
+                break;
+            case "Garlic":
+                GameManager.MoneyHave += 100;
+                GameManager.CropsPlanted.Remove(8);
                 break;
         }
         GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = -1;

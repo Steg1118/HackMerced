@@ -11,6 +11,9 @@ TagManager:
   - Barley
   - Spinach
   - Onion
+  - Rice
+  - Green Bean
+  - Garlic
   layers:
   - Default
   - TransparentFX
