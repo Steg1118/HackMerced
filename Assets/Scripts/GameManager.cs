@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayGameButton()
     {
-        if(MoneyHave > 0)
+        if(MoneyHave >= 0)
         {
             StartCoroutine(Transition());
             CalculateScore();
@@ -313,7 +313,7 @@ public class GameManager : MonoBehaviour
                 {
                     MonoScore++;
                 }
-                if(r-1 > 0 && CropBoard[r,c] == CropBoard[r-1,c])
+                if(r-1 >= 0 && CropBoard[r,c] == CropBoard[r-1,c])
                 {
                     MonoScore++;
                 }
@@ -321,7 +321,7 @@ public class GameManager : MonoBehaviour
                 {
                     MonoScore++;
                 }
-                if(c-1 > 0 && CropBoard[r,c] == CropBoard[r,c-1])
+                if(c-1 >= 0 && CropBoard[r,c] == CropBoard[r,c-1])
                 {
                     MonoScore++;
                 }
@@ -380,9 +380,9 @@ public class GameManager : MonoBehaviour
         */
         ScoreText.text = "Current Money: " + MoneyHave;
         //Tranistion to next day
-        for(int i = 0; i < 100; i++)
+        for(int i = 0; i < 100; i+=2)
         {
-            ScoreScreen.GetComponent<Image>().color += new Color(0, 0, 0, 0.01f);
+            ScoreScreen.GetComponent<Image>().color += new Color(0, 0, 0, 0.02f);
             yield return new WaitForSeconds(0.01f);
         }
         theHumitiy = Mathf.Round((int) (10 * Random.Range(65, 95))) / 10f;
@@ -395,9 +395,9 @@ public class GameManager : MonoBehaviour
         }
 
         yield return new WaitUntil(() => Input.anyKeyDown);
-        for(int i = 0; i < 100; i++)
+        for(int i = 0; i < 100; i+=2)
         {
-            ScoreScreen.GetComponent<Image>().color -= new Color(0, 0, 0, 0.01f);
+            ScoreScreen.GetComponent<Image>().color -= new Color(0, 0, 0, 0.02f);
             yield return new WaitForSeconds(0.01f);
         }
         ScoreScreen.SetActive(false);
