@@ -17,16 +17,31 @@ public class Tile : MonoBehaviour
     public float N_NitrogenValue;
     public float P_PhosphorusValue;
     public float K_PotassiumValue;
+    public static bool HoveredAButton = false;
     //add soil stats
     void OnMouseOver()
     {
-        if(Input.GetMouseButtonDown(0) && !tileOptionUI.activeSelf && !TileSellUI.activeSelf && CropHere == null)
+        if(Input.GetMouseButtonDown(0) && CropHere == null)
         {
-            TileOptions();
+            if(!tileOptionUI.activeSelf && !TileSellUI.activeSelf)
+            {
+                TileOptions();
+            }
+            else
+            {
+                tileOptionUI.SetActive(HoveredAButton);
+            }
         }
-        else if(Input.GetMouseButtonDown(0) && !TileSellUI.activeSelf && !tileOptionUI.activeSelf && CropHere != null)
+        else if(Input.GetMouseButtonDown(0) && CropHere != null)
         {
-            SellOpt();
+            if(!tileOptionUI.activeSelf && !TileSellUI.activeSelf)
+            {
+                SellOpt();
+            }
+            else
+            {
+                TileSellUI.SetActive(HoveredAButton);
+            }
         }
     }
 
