@@ -22,6 +22,15 @@ public class GameManager : MonoBehaviour
     public GameObject ScoreScreen;
     public TextMeshProUGUI ScoreText;
     public TextMeshProUGUI WhyScoreText;
+    int numCorn;
+    int numWheat;
+    int numBeet;
+    int numBarley;
+    int numSpinach;
+    int numOnion;
+    int numRice;
+    int numGreen;
+    int numGarlic;
     //private double chainLvl = 0;
     // Start is called before the first frame update
     void Start()
@@ -66,7 +75,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
         Humity.text = "Humidity: " + theHumitiy; //low = 70 med = 80  high = 90
-        TempCnF.text = "Temp: " + TempartureC + "*C " + TempartureF + "*F";
+        TempCnF.text = "Temp: " + TempartureC + "°C " + TempartureF + "°F";
     }
 
     public void PlayGameButton()
@@ -81,15 +90,15 @@ public class GameManager : MonoBehaviour
 
     private void CalculateScore()
     {
-        int numCorn = 0;
-        int numWheat = 0;
-        int numBeet = 0;
-        int numBarley = 0;
-        int numSpinach = 0;
-        int numOnion = 0;
-        int numRice = 0;
-        int numGreen = 0;
-        int numGarlic = 0;
+        numCorn = 0;
+        numWheat = 0;
+        numBeet = 0;
+        numBarley = 0;
+        numSpinach = 0;
+        numOnion = 0;
+        numRice = 0;
+        numGreen = 0;
+        numGarlic = 0;
 
         foreach(int a in CropsPlanted)
         {
@@ -341,7 +350,25 @@ public class GameManager : MonoBehaviour
         ScoreScreen.SetActive(true);
         ScoreScreen.GetComponent<Image>().color = new Color(ScoreScreen.GetComponent<Image>().color.r, ScoreScreen.GetComponent<Image>().color.b, ScoreScreen.GetComponent<Image>().color.g, 0);
         yield return new WaitForSeconds(0.01f);
-        WhyScoreText.text = "You have planted " + 0 + " Corn.";
+        WhyScoreText.text = "You have harvested: " + numCorn + " Corn,\n";
+        WhyScoreText.text += "You have harvested: " + numWheat + " Wheat,\n";
+        WhyScoreText.text += "You have harvested: " + numBeet + " Beet,\n";
+        WhyScoreText.text += "You have harvested: " + numBarley + " Barley,\n";
+        WhyScoreText.text += "You have harvested: " + numSpinach + " Spinach,\n";
+        WhyScoreText.text += "You have harvested: " + numOnion + " Onion,\n";
+        WhyScoreText.text += "You have harvested: " + numGreen + " Green Beans,\n";
+        WhyScoreText.text += "You have harvested: " + numGarlic + " Garlic.\n";
+        /*
+        int numCorn;
+    int numWheat;
+    int numBeet;
+    int numBarley;
+    int numSpinach;
+    int numOnion;
+    int numRice;
+    int numGreen;
+    int numGarlic;
+        */
         ScoreText.text = "Current Money: " + MoneyHave;
         //Tranistion to next day
         for(int i = 0; i < 100; i++)

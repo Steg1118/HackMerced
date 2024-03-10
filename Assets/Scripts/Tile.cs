@@ -13,6 +13,7 @@ public class Tile : MonoBehaviour
     public int soilQuality = 4;
     public GameObject CropHere;
     public GameObject OldCropHere;
+    public GameObject ImageCrop;
     //add soil stats
     void OnMouseOver()
     {
@@ -28,6 +29,7 @@ public class Tile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ImageCrop = GameObject.Find("CropImage");
         GameManager.Board[row, collumn] = this.gameObject;
         Debug.Log(GameManager.Board[row, collumn]);
         if(CropButtons.tileWorkedOn == null)
@@ -68,13 +70,18 @@ public class Tile : MonoBehaviour
     {
         string temp; 
         //display information on this tile
+        //ImageCrop
         if(CropHere != null)
         {
             temp = "Crop here: " + CropHere.tag + "\n";
+            //ImageCrop.GetComponent<Image>().sprite = (Typeof sprite)CropHere.GetComponent<Renderer>().material;
+            ImageCrop.GetComponent<Image>().material = CropHere.GetComponent<Renderer>().material;
         }
         else
         {
             temp = "Crop here: None\n";
+            ImageCrop.GetComponent<Image>().sprite = null;
+            ImageCrop.GetComponent<Image>().material = null;
         }
         temp += "Soil Quality: " + ((double)soilQuality / 4) + "\n";
         a.text = temp;

@@ -27,7 +27,7 @@ public class CropButtons : MonoBehaviour
             GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 0;
             GameManager.MoneyHave -= 120;
             Tile.tileOptionUI.SetActive(false);
-            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(CornPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), transform.rotation);
+            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(CornPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CornPrefab.transform.rotation);
         }
     }
 
@@ -39,7 +39,7 @@ public class CropButtons : MonoBehaviour
             GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 1;
             GameManager.MoneyHave -= 80;
             Tile.tileOptionUI.SetActive(false);
-            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(WheatPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), transform.rotation);
+            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(WheatPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CornPrefab.transform.rotation);
         }
     }
 
@@ -51,7 +51,7 @@ public class CropButtons : MonoBehaviour
             GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 2;
             GameManager.MoneyHave -= 95;
             Tile.tileOptionUI.SetActive(false);
-            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(BeetPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), transform.rotation);
+            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(BeetPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CornPrefab.transform.rotation);
         }
     }
 
@@ -63,7 +63,7 @@ public class CropButtons : MonoBehaviour
             GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 6;
             GameManager.MoneyHave -= 110;
             Tile.tileOptionUI.SetActive(false);
-            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(RicePrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), transform.rotation);
+            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(RicePrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CornPrefab.transform.rotation);
         }
     }
 
@@ -75,7 +75,7 @@ public class CropButtons : MonoBehaviour
             GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 3;
             GameManager.MoneyHave -= 90;
             Tile.tileOptionUI.SetActive(false);
-            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(BarleyPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), transform.rotation);
+            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(BarleyPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CornPrefab.transform.rotation);
         }
     }
 
@@ -87,7 +87,7 @@ public class CropButtons : MonoBehaviour
             GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 4;
             GameManager.MoneyHave -= 95;
             Tile.tileOptionUI.SetActive(false);
-            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(SpinachPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), transform.rotation);
+            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(SpinachPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CornPrefab.transform.rotation);
         }
     }
 
@@ -99,7 +99,7 @@ public class CropButtons : MonoBehaviour
             GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 5;
             GameManager.MoneyHave -= 95;
             Tile.tileOptionUI.SetActive(false);
-            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(OnionPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), transform.rotation);
+            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(OnionPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CornPrefab.transform.rotation);
         }
     }
 
@@ -111,7 +111,7 @@ public class CropButtons : MonoBehaviour
             GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 7;
             GameManager.MoneyHave -= 95;
             Tile.tileOptionUI.SetActive(false);
-            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(GreenBeanPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), transform.rotation);
+            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(GreenBeanPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CornPrefab.transform.rotation);
         }
     }
 
@@ -123,7 +123,7 @@ public class CropButtons : MonoBehaviour
             GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 8;
             GameManager.MoneyHave -= 100;
             Tile.tileOptionUI.SetActive(false);
-            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(GarlicPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), transform.rotation);
+            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(GarlicPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CornPrefab.transform.rotation);
         }
     }
 
