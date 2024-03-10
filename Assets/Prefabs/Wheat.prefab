@@ -96,3 +96,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cef8a44b4ef44430087fef88ae7841af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minusN_Nitrogen: 0
+  minusP_Phosphorus: 0
+  minusK_Potassium: 0
+  growTime: 2
+  highTemp: 75
+  lowTemp: 40
+  highHum: 60
+  lowHum: 50

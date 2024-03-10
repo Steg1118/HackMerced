@@ -7,11 +7,16 @@ public class Crop : MonoBehaviour
     public float minusN_Nitrogen;
     public float minusP_Phosphorus;
     public float minusK_Potassium;
-    Tile tilescript;
+    public int growTime;
+    public float highTemp;
+    public float lowTemp;
+    public float highHum;
+    public float lowHum;
+    //Tile tilescript;
     // Start is called before the first frame update
     void Start()
     {
-        tilescript = FindObjectOfType<Tile>();
+        //tilescript = FindObjectOfType<Tile>();
         // switch(gameObject.tag)
         // {
         //     case("Corn"):
@@ -37,11 +42,5 @@ public class Crop : MonoBehaviour
     void Update()
     {
         
-    }
-    public void removeNPKValues()
-    {
-        tilescript.N_NitrogenValue -= minusN_Nitrogen;
-        tilescript.K_PotassiumValue -= minusK_Potassium;
-        tilescript.P_PhosphorusValue -= minusP_Phosphorus;
     }
 }

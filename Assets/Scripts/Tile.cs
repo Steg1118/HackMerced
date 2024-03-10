@@ -29,6 +29,14 @@ public class Tile : MonoBehaviour
             SellOpt();
         }
     }
+
+    public void removeNPKValues()
+    {
+        // tilescript.N_NitrogenValue -= minusN_Nitrogen;
+        // tilescript.K_PotassiumValue -= minusK_Potassium;
+        // tilescript.P_PhosphorusValue -= minusP_Phosphorus;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
