@@ -83,7 +83,9 @@ public class Tile : MonoBehaviour
             ImageCrop.GetComponent<Image>().sprite = null;
             ImageCrop.GetComponent<Image>().material = null;
         }
-        temp += "Soil Quality: " + ((double)soilQuality / 4) + "\n";
+        temp += "Nitrogen: " + ((double)soilQuality / 4) + "\n";
+        temp += "Phosperous: " + ((double)soilQuality / 4) + "\n";
+        temp += "Potasism: " + ((double)soilQuality / 4) + "\n";
         a.text = temp;
 
     }
