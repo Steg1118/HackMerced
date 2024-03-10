@@ -100,8 +100,11 @@ public class GameManager : MonoBehaviour
         numGreen = 0;
         numGarlic = 0;
 
-        foreach(int a in CropsPlanted)
+        for(int r = 0; r < 8; r++)
         {
+        for(int c = 0; c < 8; c++)
+        {
+            int a = CropBoard[r, c];
             if(a == 0)
             {
                 numCorn++;
@@ -138,7 +141,10 @@ public class GameManager : MonoBehaviour
             {
                 numGarlic++;
             }
+            //CropsPlanted.Remove(a);
         }
+        }
+
 
         switch(theSeason)
         {
@@ -337,10 +343,13 @@ public class GameManager : MonoBehaviour
         {
             for(int c = 0; c < 8; c++)//276 combinations checked
             {
-                Board[r, c].GetComponent<Tile>().OldCropHere = Board[r, c].GetComponent<Tile>().CropHere;
-                Destroy(Board[r, c].GetComponent<Tile>().CropHere);
-                Board[r, c].GetComponent<Tile>().CropHere = null;
-                CropBoard[r, c] = -1;
+                if(Board[r, c] != null)
+                {
+                    Board[r, c].GetComponent<Tile>().OldCropHere = Board[r, c].GetComponent<Tile>().CropHere;
+                    Destroy(Board[r, c].GetComponent<Tile>().CropHere);
+                    Board[r, c].GetComponent<Tile>().CropHere = null;
+                    CropBoard[r, c] = -1;
+                }
             }
         }
     }
