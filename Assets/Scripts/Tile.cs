@@ -70,15 +70,7 @@ public class Tile : MonoBehaviour
         //display information on this tile
         if(CropHere != null)
         {
-            temp = "Crop here: ";
-            switch(CropHere.tag)
-            {
-                case "Corn":
-                temp += "Corn\n";
-                    break;
-                default:
-                    break;
-            }
+            temp = "Crop here: " + CropHere.tag + "\n";
         }
         else
         {

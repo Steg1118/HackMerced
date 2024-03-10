@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Corn
   - Tile
+  - Wheat
+  - Beet
+  - Barley
+  - Spinach
+  - Onion
   layers:
   - Default
   - TransparentFX

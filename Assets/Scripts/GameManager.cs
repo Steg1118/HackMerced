@@ -146,27 +146,27 @@ public class GameManager : MonoBehaviour
                 MoneyHave += 180 * numCorn;
                 MoneyHave += 10 * numWheat;
                 MoneyHave += 10 * numBeet;
-                MoneyHave += 130 * numBarley;
-                MoneyHave += 140 * numSpinach;
-                MoneyHave += 130 * numOnion;
+                MoneyHave += 10 * numBarley;
+                MoneyHave += 10 * numSpinach;
+                MoneyHave += 0 * numOnion;
             }
             else if(theHumitiy > 75)
             {
                 MoneyHave += 180 * numCorn;
                 MoneyHave += 46 * numWheat;
                 MoneyHave += 46 * numBeet;
-                MoneyHave += 130 * numBarley;
-                MoneyHave += 140 * numSpinach;
-                MoneyHave += 130 * numOnion;
+                MoneyHave += 43 * numBarley;
+                MoneyHave += 46 * numSpinach;
+                MoneyHave += 10 * numOnion;
             }
             else
             {
                 MoneyHave += 60 * numCorn;
                 MoneyHave += 46 * numWheat;
                 MoneyHave += 46 * numBeet;
-                MoneyHave += 130 * numBarley;
-                MoneyHave += 140 * numSpinach;
-                MoneyHave += 130 * numOnion;
+                MoneyHave += 43 * numBarley;
+                MoneyHave += 10 * numSpinach;
+                MoneyHave += 0 * numOnion;
             }
         }
         else if(TempartureF > 95 - 36)
@@ -176,9 +176,9 @@ public class GameManager : MonoBehaviour
                 MoneyHave += 180 * numCorn;
                 MoneyHave += 140 * numWheat;
                 MoneyHave += 46 * numBeet;
-                MoneyHave += 130 * numBarley;
-                MoneyHave += 140 * numSpinach;
-                MoneyHave += 130 * numOnion;
+                MoneyHave += 43 * numBarley;
+                MoneyHave += 46 * numSpinach;
+                MoneyHave += 10 * numOnion;
             }
             else if(theHumitiy > 75)
             {
@@ -187,7 +187,7 @@ public class GameManager : MonoBehaviour
                 MoneyHave += 140 * numBeet;
                 MoneyHave += 130 * numBarley;
                 MoneyHave += 140 * numSpinach;
-                MoneyHave += 130 * numOnion;
+                MoneyHave += 43 * numOnion;
             }
             else
             {
@@ -195,8 +195,8 @@ public class GameManager : MonoBehaviour
                 MoneyHave += 140 * numWheat;
                 MoneyHave += 140 * numBeet;
                 MoneyHave += 130 * numBarley;
-                MoneyHave += 140 * numSpinach;
-                MoneyHave += 130 * numOnion;
+                MoneyHave += 46 * numSpinach;
+                MoneyHave += 10 * numOnion;
             }
         }
         else
@@ -206,9 +206,9 @@ public class GameManager : MonoBehaviour
                 MoneyHave += 60 * numCorn;
                 MoneyHave += 140 * numWheat;
                 MoneyHave += 46 * numBeet;
-                MoneyHave += 130 * numBarley;
-                MoneyHave += 140 * numSpinach;
-                MoneyHave += 130 * numOnion;
+                MoneyHave += 43 * numBarley;
+                MoneyHave += 46 * numSpinach;
+                MoneyHave += 43 * numOnion;
             }
             else if(theHumitiy > 75)
             {
@@ -225,8 +225,8 @@ public class GameManager : MonoBehaviour
                 MoneyHave += 140 * numWheat;
                 MoneyHave += 140 * numBeet;
                 MoneyHave += 130 * numBarley;
-                MoneyHave += 140 * numSpinach;
-                MoneyHave += 130 * numOnion;
+                MoneyHave += 46 * numSpinach;
+                MoneyHave += 43 * numOnion;
             }
         }
     }
