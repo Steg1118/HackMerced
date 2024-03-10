@@ -14,6 +14,9 @@ public class Tile : MonoBehaviour
     public GameObject CropHere;
     public GameObject OldCropHere;
     public GameObject ImageCrop;
+    public float N_NitrogenValue;
+    public float P_PhosphorusValue;
+    public float K_PotassiumValue;
     //add soil stats
     void OnMouseOver()
     {
