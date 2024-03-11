@@ -940,14 +940,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1525639491}
         m_TargetAssemblyTypeName: CropButtons, Assembly-CSharp
-        m_MethodName: Garlic
-        m_Mode: 1
+        m_MethodName: PlantCrop
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Garlic
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &84164500
@@ -1624,14 +1624,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1525639491}
         m_TargetAssemblyTypeName: CropButtons, Assembly-CSharp
-        m_MethodName: Rice
-        m_Mode: 1
+        m_MethodName: PlantCrop
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Rice
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &198001501
@@ -3365,14 +3365,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1525639491}
         m_TargetAssemblyTypeName: CropButtons, Assembly-CSharp
-        m_MethodName: GreenBean
-        m_Mode: 1
+        m_MethodName: PlantCrop
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Green Bean
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &486785571
@@ -6572,14 +6572,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1525639491}
         m_TargetAssemblyTypeName: CropButtons, Assembly-CSharp
-        m_MethodName: Beet
-        m_Mode: 1
+        m_MethodName: PlantCrop
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Beet
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &840800576
@@ -9787,14 +9787,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1525639491}
         m_TargetAssemblyTypeName: CropButtons, Assembly-CSharp
-        m_MethodName: Barley
-        m_Mode: 1
+        m_MethodName: PlantCrop
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Barley
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1412199754
@@ -10774,15 +10774,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2fc7bb20b358497fa67b390768312b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CornPrefab: {fileID: 3644055638860247149, guid: fed864f653b694c718fe0714bc890a62, type: 3}
-  WheatPrefab: {fileID: 3644055638860247149, guid: c33edfd9fe78440b2b404a79c4b50bf6, type: 3}
-  BeetPrefab: {fileID: 3644055638860247149, guid: 26f92e287966f4677a3dc3c81a276dbb, type: 3}
-  BarleyPrefab: {fileID: 3644055638860247149, guid: 46100820720e446d19d8f1032559fc84, type: 3}
-  SpinachPrefab: {fileID: 3644055638860247149, guid: fc3f493fe39204910bd98c062340009b, type: 3}
-  OnionPrefab: {fileID: 3644055638860247149, guid: 40d076b3cb16845bd8718a4126c4c9c9, type: 3}
-  RicePrefab: {fileID: 3644055638860247149, guid: 5cdedf9d0d3fd4910919e0560801d9c4, type: 3}
-  GreenBeanPrefab: {fileID: 3644055638860247149, guid: 2f7f2d6d633b74cb7ab5fe258e380e32, type: 3}
-  GarlicPrefab: {fileID: 3644055638860247149, guid: bdcbb12941e2c4614b12fc82d5723577, type: 3}
+  CropPrefabs:
+  - {fileID: 3644055638860247149, guid: fed864f653b694c718fe0714bc890a62, type: 3}
+  - {fileID: 3644055638860247149, guid: c33edfd9fe78440b2b404a79c4b50bf6, type: 3}
+  - {fileID: 3644055638860247149, guid: 26f92e287966f4677a3dc3c81a276dbb, type: 3}
+  - {fileID: 3644055638860247149, guid: 5cdedf9d0d3fd4910919e0560801d9c4, type: 3}
+  - {fileID: 3644055638860247149, guid: 46100820720e446d19d8f1032559fc84, type: 3}
+  - {fileID: 3644055638860247149, guid: fc3f493fe39204910bd98c062340009b, type: 3}
+  - {fileID: 3644055638860247149, guid: 40d076b3cb16845bd8718a4126c4c9c9, type: 3}
+  - {fileID: 3644055638860247149, guid: 2f7f2d6d633b74cb7ab5fe258e380e32, type: 3}
+  - {fileID: 3644055638860247149, guid: bdcbb12941e2c4614b12fc82d5723577, type: 3}
   InfoPanel: {fileID: 579060504}
 --- !u!1 &1528691620
 GameObject:
@@ -10890,8 +10891,8 @@ Transform:
   m_Children:
   - {fileID: 553038993}
   - {fileID: 9234999}
-  - {fileID: 1347466612}
   - {fileID: 94824245}
+  - {fileID: 1347466612}
   - {fileID: 288971882}
   - {fileID: 1292053030}
   - {fileID: 1678849317}
@@ -12461,14 +12462,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1525639491}
         m_TargetAssemblyTypeName: CropButtons, Assembly-CSharp
-        m_MethodName: Corn
-        m_Mode: 1
+        m_MethodName: PlantCrop
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Corn
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1785272157
@@ -12606,14 +12607,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1525639491}
         m_TargetAssemblyTypeName: CropButtons, Assembly-CSharp
-        m_MethodName: Onion
-        m_Mode: 1
+        m_MethodName: PlantCrop
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Onion
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1843158982
@@ -13397,14 +13398,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1525639491}
         m_TargetAssemblyTypeName: CropButtons, Assembly-CSharp
-        m_MethodName: Spinach
-        m_Mode: 1
+        m_MethodName: PlantCrop
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Spinach
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1884465299
@@ -14366,14 +14367,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1525639491}
         m_TargetAssemblyTypeName: CropButtons, Assembly-CSharp
-        m_MethodName: Wheat
-        m_Mode: 1
+        m_MethodName: PlantCrop
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Wheat
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2058549394

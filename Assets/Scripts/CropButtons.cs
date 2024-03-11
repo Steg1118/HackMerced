@@ -7,126 +7,73 @@ using TMPro;
 public class CropButtons : MonoBehaviour
 {
     public static GameObject tileWorkedOn;
-    public GameObject CornPrefab;
-    public GameObject WheatPrefab;
-    public GameObject BeetPrefab;
-    public GameObject BarleyPrefab;
-    public GameObject SpinachPrefab;
-    public GameObject OnionPrefab;
-    public GameObject RicePrefab;
-    public GameObject GreenBeanPrefab;
-    public GameObject GarlicPrefab;
-    //public GameObject Prefab;
+    public GameObject[] CropPrefabs;
     public TextMeshProUGUI InfoPanel;
 
-    public void Corn()
+    public void PlantCrop(string crop)
     {
         if(tileWorkedOn.transform.GetComponent<Tile>().CropHere == null)
         {
-            GameManager.CropsPlanted.Add(0);
-            GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 0;
-            GameManager.MoneyHave -= 120;
-            Tile.tileOptionUI.SetActive(false);
-            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(CornPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CornPrefab.transform.rotation);
-        }
-    }
-
-    public void Wheat()
-    {
-        if(tileWorkedOn.transform.GetComponent<Tile>().CropHere == null)
+            switch(crop)
         {
-            GameManager.CropsPlanted.Add(1);
-            GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 1;
-            GameManager.MoneyHave -= 80;
+            case "Corn":
+                GameManager.MoneyHave -= 120;
+                GameManager.CropsPlanted.Add(0);
+                tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(CropPrefabs[0], tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CropPrefabs[0].transform.rotation);
+                GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 0;
+                break;
+            case "Wheat":
+                GameManager.MoneyHave -= 80;
+                GameManager.CropsPlanted.Add(1);
+                tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(CropPrefabs[1], tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CropPrefabs[1].transform.rotation);
+                GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 1;
+                break;
+            case "Beet":
+                GameManager.MoneyHave -= 95;
+                GameManager.CropsPlanted.Add(2);
+                tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(CropPrefabs[2], tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CropPrefabs[2].transform.rotation);
+                GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 2;
+                break;
+            case "Barley":
+                GameManager.MoneyHave -= 90;
+                GameManager.CropsPlanted.Add(3);
+                tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(CropPrefabs[3], tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CropPrefabs[3].transform.rotation);
+                GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 3;
+                break;
+            case "Spinach":
+                GameManager.MoneyHave -= 95;
+                GameManager.CropsPlanted.Add(4);
+                tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(CropPrefabs[4], tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CropPrefabs[4].transform.rotation);
+                GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 4;
+                break;
+            case "Onion":
+                GameManager.MoneyHave -= 95;
+                GameManager.CropsPlanted.Add(5);
+                tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(CropPrefabs[5], tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CropPrefabs[5].transform.rotation);
+                GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 5;
+                break;
+            case "Rice":
+                GameManager.MoneyHave -= 110;
+                GameManager.CropsPlanted.Add(6);
+                tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(CropPrefabs[6], tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CropPrefabs[6].transform.rotation);
+                GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 6;
+                break;
+            case "Green Bean":
+                GameManager.MoneyHave -= 95;
+                GameManager.CropsPlanted.Add(7);
+                tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(CropPrefabs[7], tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CropPrefabs[7].transform.rotation);
+                GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 7;
+                break;
+            case "Garlic":
+                GameManager.MoneyHave -= 100;
+                GameManager.CropsPlanted.Add(8);
+                tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(CropPrefabs[8], tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CropPrefabs[8].transform.rotation);
+                GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 8;
+                break;
+        }
             Tile.tileOptionUI.SetActive(false);
-            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(WheatPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CornPrefab.transform.rotation);
         }
     }
-
-    public void Beet()
-    {
-        if(tileWorkedOn.transform.GetComponent<Tile>().CropHere == null)
-        {
-            GameManager.CropsPlanted.Add(2);
-            GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 2;
-            GameManager.MoneyHave -= 95;
-            Tile.tileOptionUI.SetActive(false);
-            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(BeetPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CornPrefab.transform.rotation);
-        }
-    }
-
-    public void Rice()
-    {
-        if(tileWorkedOn.transform.GetComponent<Tile>().CropHere == null)
-        {
-            GameManager.CropsPlanted.Add(6);
-            GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 6;
-            GameManager.MoneyHave -= 110;
-            Tile.tileOptionUI.SetActive(false);
-            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(RicePrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CornPrefab.transform.rotation);
-        }
-    }
-
-    public void Barley()
-    {
-        if(tileWorkedOn.transform.GetComponent<Tile>().CropHere == null)
-        {
-            GameManager.CropsPlanted.Add(3);
-            GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 3;
-            GameManager.MoneyHave -= 90;
-            Tile.tileOptionUI.SetActive(false);
-            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(BarleyPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CornPrefab.transform.rotation);
-        }
-    }
-
-    public void Spinach()
-    {
-        if(tileWorkedOn.transform.GetComponent<Tile>().CropHere == null)
-        {
-            GameManager.CropsPlanted.Add(4);
-            GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 4;
-            GameManager.MoneyHave -= 95;
-            Tile.tileOptionUI.SetActive(false);
-            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(SpinachPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CornPrefab.transform.rotation);
-        }
-    }
-
-    public void Onion()
-    {
-        if(tileWorkedOn.transform.GetComponent<Tile>().CropHere == null)
-        {
-            GameManager.CropsPlanted.Add(5);
-            GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 5;
-            GameManager.MoneyHave -= 95;
-            Tile.tileOptionUI.SetActive(false);
-            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(OnionPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CornPrefab.transform.rotation);
-        }
-    }
-
-    public void GreenBean()
-    {
-        if(tileWorkedOn.transform.GetComponent<Tile>().CropHere == null)
-        {
-            GameManager.CropsPlanted.Add(7);
-            GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 7;
-            GameManager.MoneyHave -= 95;
-            Tile.tileOptionUI.SetActive(false);
-            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(GreenBeanPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CornPrefab.transform.rotation);
-        }
-    }
-
-    public void Garlic()
-    {
-        if(tileWorkedOn.transform.GetComponent<Tile>().CropHere == null)
-        {
-            GameManager.CropsPlanted.Add(8);
-            GameManager.CropBoard[tileWorkedOn.GetComponent<Tile>().row, tileWorkedOn.GetComponent<Tile>().collumn] = 8;
-            GameManager.MoneyHave -= 100;
-            Tile.tileOptionUI.SetActive(false);
-            tileWorkedOn.transform.GetComponent<Tile>().CropHere = Instantiate(GarlicPrefab, tileWorkedOn.transform.position + new Vector3(0,0.01f,0), CornPrefab.transform.rotation);
-        }
-    }
-
     public void SellTile()
     {
         switch(tileWorkedOn.GetComponent<Tile>().CropHere.tag)
@@ -176,13 +123,6 @@ public class CropButtons : MonoBehaviour
 
     public void InfoTile()
     {
-        // switch(tileWorkedOn.GetComponent<Tile>().CropHere.tag)
-        // {
-        //     case "Corn":
-        //         break;
-        //     default:
-        //         break;
-        // }
         tileWorkedOn.GetComponent<Tile>().DisplayInfo(InfoPanel);
     }
 }
